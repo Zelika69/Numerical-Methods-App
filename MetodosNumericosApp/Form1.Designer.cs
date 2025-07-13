@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textA = new System.Windows.Forms.TextBox();
-            this.textB = new System.Windows.Forms.TextBox();
+            this.txtA = new System.Windows.Forms.TextBox();
+            this.txtB = new System.Windows.Forms.TextBox();
             this.lblA = new System.Windows.Forms.Label();
             this.lblB = new System.Windows.Forms.Label();
             this.btnCalcular = new System.Windows.Forms.Button();
@@ -38,30 +38,32 @@
             this.lblFuncion = new System.Windows.Forms.Label();
             this.rtbResultados = new System.Windows.Forms.RichTextBox();
             this.cmbTolerancia = new System.Windows.Forms.ComboBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox1.SuspendLayout();
+            this.gbParametros = new System.Windows.Forms.GroupBox();
+            this.picGrafico = new System.Windows.Forms.PictureBox();
+            this.gbParametros.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picGrafico)).BeginInit();
             this.SuspendLayout();
             // 
-            // textA
+            // txtA
             // 
-            this.textA.Location = new System.Drawing.Point(114, 83);
-            this.textA.MaxLength = 100;
-            this.textA.Name = "textA";
-            this.textA.Size = new System.Drawing.Size(100, 20);
-            this.textA.TabIndex = 0;
+            this.txtA.Location = new System.Drawing.Point(83, 71);
+            this.txtA.MaxLength = 100;
+            this.txtA.Name = "txtA";
+            this.txtA.Size = new System.Drawing.Size(100, 20);
+            this.txtA.TabIndex = 0;
             // 
-            // textB
+            // txtB
             // 
-            this.textB.Location = new System.Drawing.Point(114, 152);
-            this.textB.MaxLength = 100;
-            this.textB.Name = "textB";
-            this.textB.Size = new System.Drawing.Size(100, 20);
-            this.textB.TabIndex = 1;
+            this.txtB.Location = new System.Drawing.Point(83, 108);
+            this.txtB.MaxLength = 100;
+            this.txtB.Name = "txtB";
+            this.txtB.Size = new System.Drawing.Size(100, 20);
+            this.txtB.TabIndex = 1;
             // 
             // lblA
             // 
             this.lblA.AutoSize = true;
-            this.lblA.Location = new System.Drawing.Point(41, 90);
+            this.lblA.Location = new System.Drawing.Point(13, 78);
             this.lblA.Name = "lblA";
             this.lblA.Size = new System.Drawing.Size(44, 13);
             this.lblA.TabIndex = 2;
@@ -71,7 +73,7 @@
             // lblB
             // 
             this.lblB.AutoSize = true;
-            this.lblB.Location = new System.Drawing.Point(41, 159);
+            this.lblB.Location = new System.Drawing.Point(13, 115);
             this.lblB.Name = "lblB";
             this.lblB.Size = new System.Drawing.Size(44, 13);
             this.lblB.TabIndex = 3;
@@ -79,12 +81,13 @@
             // 
             // btnCalcular
             // 
-            this.btnCalcular.Location = new System.Drawing.Point(72, 255);
+            this.btnCalcular.Location = new System.Drawing.Point(63, 210);
             this.btnCalcular.Name = "btnCalcular";
             this.btnCalcular.Size = new System.Drawing.Size(75, 23);
             this.btnCalcular.TabIndex = 6;
             this.btnCalcular.Text = "Calcular";
             this.btnCalcular.UseVisualStyleBackColor = true;
+            this.btnCalcular.Click += new System.EventHandler(this.btnCalcular_Click);
             // 
             // txtFuncion
             // 
@@ -96,7 +99,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(34, 205);
+            this.label3.Location = new System.Drawing.Point(13, 158);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 13);
             this.label3.TabIndex = 8;
@@ -114,9 +117,9 @@
             // rtbResultados
             // 
             this.rtbResultados.Dock = System.Windows.Forms.DockStyle.Right;
-            this.rtbResultados.Location = new System.Drawing.Point(288, 0);
+            this.rtbResultados.Location = new System.Drawing.Point(687, 0);
             this.rtbResultados.Name = "rtbResultados";
-            this.rtbResultados.Size = new System.Drawing.Size(332, 305);
+            this.rtbResultados.Size = new System.Drawing.Size(320, 473);
             this.rtbResultados.TabIndex = 10;
             this.rtbResultados.Text = "";
             // 
@@ -129,50 +132,59 @@
             "0.01",
             "0.001",
             "0.0001"});
-            this.cmbTolerancia.Location = new System.Drawing.Point(114, 202);
+            this.cmbTolerancia.Location = new System.Drawing.Point(83, 150);
             this.cmbTolerancia.Name = "cmbTolerancia";
             this.cmbTolerancia.Size = new System.Drawing.Size(100, 21);
             this.cmbTolerancia.TabIndex = 11;
             this.cmbTolerancia.SelectedIndexChanged += new System.EventHandler(this.cmbTolerancia_SelectedIndexChanged);
             // 
-            // groupBox1
+            // gbParametros
             // 
-            this.groupBox1.Controls.Add(this.lblFuncion);
-            this.groupBox1.Controls.Add(this.txtFuncion);
-            this.groupBox1.Location = new System.Drawing.Point(257, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(201, 281);
-            this.groupBox1.TabIndex = 12;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Parámetros";
+            this.gbParametros.Controls.Add(this.lblFuncion);
+            this.gbParametros.Controls.Add(this.cmbTolerancia);
+            this.gbParametros.Controls.Add(this.btnCalcular);
+            this.gbParametros.Controls.Add(this.label3);
+            this.gbParametros.Controls.Add(this.txtFuncion);
+            this.gbParametros.Controls.Add(this.txtA);
+            this.gbParametros.Controls.Add(this.lblA);
+            this.gbParametros.Controls.Add(this.lblB);
+            this.gbParametros.Controls.Add(this.txtB);
+            this.gbParametros.Location = new System.Drawing.Point(37, 12);
+            this.gbParametros.Name = "gbParametros";
+            this.gbParametros.Size = new System.Drawing.Size(201, 281);
+            this.gbParametros.TabIndex = 12;
+            this.gbParametros.TabStop = false;
+            this.gbParametros.Text = "Parámetros";
+            // 
+            // picGrafico
+            // 
+            this.picGrafico.Location = new System.Drawing.Point(268, 21);
+            this.picGrafico.Name = "picGrafico";
+            this.picGrafico.Size = new System.Drawing.Size(400, 300);
+            this.picGrafico.TabIndex = 13;
+            this.picGrafico.TabStop = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(620, 305);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.cmbTolerancia);
+            this.ClientSize = new System.Drawing.Size(1007, 473);
+            this.Controls.Add(this.picGrafico);
+            this.Controls.Add(this.gbParametros);
             this.Controls.Add(this.rtbResultados);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.btnCalcular);
-            this.Controls.Add(this.lblB);
-            this.Controls.Add(this.lblA);
-            this.Controls.Add(this.textB);
-            this.Controls.Add(this.textA);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gbParametros.ResumeLayout(false);
+            this.gbParametros.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picGrafico)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TextBox textA;
-        private System.Windows.Forms.TextBox textB;
+        private System.Windows.Forms.TextBox txtA;
+        private System.Windows.Forms.TextBox txtB;
         private System.Windows.Forms.Label lblA;
         private System.Windows.Forms.Label lblB;
         private System.Windows.Forms.Button btnCalcular;
@@ -181,7 +193,8 @@
         private System.Windows.Forms.Label lblFuncion;
         private System.Windows.Forms.RichTextBox rtbResultados;
         private System.Windows.Forms.ComboBox cmbTolerancia;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbParametros;
+        private System.Windows.Forms.PictureBox picGrafico;
     }
 }
 
